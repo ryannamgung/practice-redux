@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {buyGood} from '../actions.js'
+import * as actions from '../actions.js'
 
 const CompanyProfile = (props) => {
 
@@ -11,31 +13,32 @@ const CompanyProfile = (props) => {
   // }
   // debugger
   const {name, password} = props.currentCompany
+  // console.log("THESE ARE PROPS!!!!!!!", props)
+  // debugger
   return (
     <div>
       <h2>{name}</h2>
       <h2>{password}</h2>
-      <button onClick={() => {props.purchaseGood(props.currentCompany)}}>Purchase</button>
+      <button onClick={() => {props.buyGood(props.currentCompany)}}>Purchase</button>
     </div>
   )
 }
 
 function mapStateToProps(state) {
+  // debugger
   return {
     currentCompany: state.currentCompany
   }
 }
 
-function mapDispatchToProps(dispatch){
-  console.log(dispatch)
-  return {
-    purchaseGood: (company) => {
-      dispatch({
-        type: 'BUY_GOOD',
-        payload: company
-      })
-    }
-  }
-}
+// function mapDispatchToProps(dispatch){
+//   console.log(dispatch)
+//   return {
+//     purchaseGood: (company) => {
+//       dispatch(buyGood(company))
+//     }
+//   }
+// }
+// debugger
 
-export default connect(mapStateToProps, mapDispatchToProps)(CompanyProfile)
+export default connect(mapStateToProps, actions)(CompanyProfile)

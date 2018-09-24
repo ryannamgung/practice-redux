@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {setCompany} from '../actions.js'
 
 const Company = (props) => {
   const { name, password } = props.company;
@@ -25,7 +26,7 @@ const Company = (props) => {
 function mapDispatchToProps(dispatch){
   return {
     handleClick: (company) => {
-      dispatch({type: 'SET_COMPANY', payload: company})
+      dispatch(setCompany(company))
     }
     // ,dispatch
   }
