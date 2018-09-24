@@ -3,19 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import {createStore} from 'redux'
 import {Provider} from 'react-redux'
-
-function reducer(state, action) {
-  switch(action.type){
-    default:
-      return state
-  }
-  return state;
-}
-
-const store = createStore(reducer)
-
+import reducer from './reducer'
+import store from './store'
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
