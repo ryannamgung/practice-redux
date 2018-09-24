@@ -23,7 +23,9 @@ export default function reducer(state = initialState, action) {
     case 'SET_COMPANY':
       return {...state, currentCompany: action.payload}
     case 'BUY_GOOD':
-    return state
+      // debugger
+      return {...state, companies: state.companies.filter((company) => company != action.payload
+      )}
       // return {...state, companies: companies.includes{!action.payload}}
     default:
       return state
